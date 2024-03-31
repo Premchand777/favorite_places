@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:favorite_places/widgets/screens/fav_places.dart';
 
 final colorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
-  seedColor: const Color.fromARGB(255, 6, 74, 247),
-  background: const Color.fromARGB(180, 6, 0, 14),
+  seedColor: const Color.fromARGB(255, 102, 6, 247),
+  background: const Color.fromARGB(255, 56, 49, 66),
 );
 
 final theme = ThemeData().copyWith(
@@ -35,16 +38,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: MaterialApp(
-        title: 'Favorite Places',
-        theme: theme,
-        home: const Scaffold(
-          body: Center(
-            child: Text('Favorite Places'),
-          ),
+    return ProviderScope(
+      child: SafeArea(
+        child: MaterialApp(
+          title: 'Favorite Places',
+          theme: theme,
+          home: const FavPlacesScreen(),
+          debugShowCheckedModeBanner: false,
         ),
-        debugShowCheckedModeBanner: false,
       ),
     );
   }
